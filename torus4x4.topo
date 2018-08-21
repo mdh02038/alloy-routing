@@ -1,0 +1,24 @@
+/* 4x4 Torus */
+one sig N0_0, N0_1, N0_2, N0_3 extends Node {}
+one sig N1_0, N1_1, N1_2, N1_3 extends Node {}
+one sig N2_0, N2_1, N2_2, N2_3 extends Node {}
+one sig N3_0, N3_1, N3_2, N3_3 extends Node {}
+
+pred topo {
+    link[N0_0] = N0_1 + N0_3 + N1_0 + N3_0
+    link[N1_0] = N1_1 + N1_3 + N2_0 + N0_0
+    link[N2_0] = N2_1 + N2_3 + N3_0 + N1_0
+    link[N3_0] = N3_1 + N3_3 + N0_0 + N2_0
+    link[N0_1] = N0_2 + N0_0 + N1_1 + N3_1
+    link[N1_1] = N1_2 + N1_0 + N2_1 + N0_1
+    link[N2_1] = N2_2 + N2_0 + N3_1 + N1_1
+    link[N3_1] = N3_2 + N3_0 + N0_1 + N2_1
+    link[N0_2] = N0_3 + N0_1 + N1_2 + N3_2
+    link[N1_2] = N1_3 + N1_1 + N2_2 + N0_2
+    link[N2_2] = N2_3 + N2_1 + N3_2 + N1_2
+    link[N3_2] = N3_3 + N3_1 + N0_2 + N2_2
+    link[N0_3] = N0_0 + N0_2 + N1_3 + N3_3
+    link[N1_3] = N1_0 + N1_2 + N2_3 + N0_3
+    link[N2_3] = N2_0 + N2_2 + N3_3 + N1_3
+    link[N3_3] = N3_0 + N3_2 + N0_3 + N2_3
+}
